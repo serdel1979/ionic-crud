@@ -1,0 +1,19 @@
+{
+  "autos": [
+    {
+      "id": 1,
+      "marca": "VMW",
+      "modelo": "A6"
+    },
+    {
+      "id": 2,
+      "marca": "FORD",
+      "modelo": "Fiesta"
+    },
+    {
+      "id": 3,
+      "marca": "Renault",
+      "modelo": "Logan"
+    }
+  ]
+}
