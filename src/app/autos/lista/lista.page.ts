@@ -9,15 +9,16 @@ import { AutosService } from '../../servicios/autos.service';
   templateUrl: './lista.page.html',
   styleUrls: ['./lista.page.scss'],
 })
-export class ListaPage implements OnInit {
+export class ListaPage {
 
 
 
-  private autos: Iautos[] = [];
+  public autos: Iautos[] = [];
 
   constructor(private autosService: AutosService, private loadingCtl: LoadingController) { }
 
-  ngOnInit() {
+  ionViewWillEnter(){
+    this.getAll();
   }
 
   async getAll(eveent?: InfiniteScrollCustomEvent){
@@ -32,10 +33,11 @@ export class ListaPage implements OnInit {
           loading.dismiss;
           let listString = JSON.stringify(resp);
           this.autos = JSON.parse(listString);
-          //event?.target.complete();
+          loading.dismiss();
       },
       (err) =>{
         console.log(err.message);
+        loading.dismiss();
       }
     )
   }
